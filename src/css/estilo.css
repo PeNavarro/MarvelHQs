@@ -1,6 +1,5 @@
 img{
-    width: 70%;
-    margin-left: 15%;
+    width: 100%;
 }
 
 #root,
@@ -17,6 +16,11 @@ html,
     /*background-color: rgb(224, 86, 86) !important;*/
     background-color: rgb(30, 30, 30) !important;
     color: white;
+}
+
+.bannerImg{
+    width: 70%;
+    margin-left: 15%;
 }
 
 .semBorda{
@@ -36,4 +40,9 @@ html,
 
 .button{
     background-color: rgb(240, 20, 30) !important;
+}
+
+.botaoPreto{
+    background-color: rgb(30, 30, 30) !important;
+    color: white;
 }

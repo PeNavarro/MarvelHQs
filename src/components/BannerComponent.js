@@ -18,7 +18,7 @@ function BannerComponent(){
                     <p>Desenvolvido por: Pedro Mack Navarro e Nickolas da Silva Veiga</p>
                     </Col>
                     <Col lg={6}>
-                    <img src={MarvelComics} alt="marvel comics logo"/>
+                    <img className="bannerImg" src={MarvelComics} alt="marvel comics logo"/>
                 </Col>
             </Row>
         </Jumbotron>

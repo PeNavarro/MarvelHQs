@@ -27,22 +27,26 @@ const App = () =>{
     await fetch(url)
     .then(response => response.json())
     .then(data =>{
-      console.log(data)
+      console.log(data.data.results)
       setHerois(data.data.results)
     })
     .catch(function(error){
-      console.error("Não foi possível consultar os super-heróis")
+      console.error("Não foi possível consultar os super-heróis: "+error.message)
     })
   }
   
   function ListaHerois(props){
     const herois = props.herois
-    const listagemHerois = herois.map((heroi) =>
-      <option value={heroi.id}>{heroi.name}</option>
+    const listagemHerois = herois.map((heroi) => 
+      <option key={heroi.id} value={heroi.id}>{heroi.name}</option>
     )
     return(
       <>{listagemHerois}</>
     )
+  }
+
+  function teste(){
+    console.log({heroiId})
   }
 
   return(
@@ -58,9 +62,15 @@ const App = () =>{
                 <Form>
                   <Form.Group>
                     <Form.Label>Selecionar:</Form.Label>
-                    <Form.Control className="select" as="select" size="lg" onChange={e => setHeroiId(e.target.value)}custom>
-                      <option disabled selected>Selecione o herói</option>
+                    <Form.Control className="select" as="select" size="lg" onChange={teste(), e => setHeroiId(e.target.value)} custom>
                       <ListaHerois herois={herois}/>
+                      <option disabled selected>Selecione o herói</option>
+                      <option value="Teste1">Teste1</option>
+                      <option value="Teste2">Teste2</option>
+                      <option value="Teste3">Teste3</option>
+                      <option value="Teste4">Teste4</option>
+                      <option value="Teste5">Teste5</option>
+                      <option value="Teste6">Teste6</option> 
                     </Form.Control>
                   </Form.Group>
                 </Form>

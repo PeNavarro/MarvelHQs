@@ -1,2 +1,0 @@
-(this.webpackJsonpmarvelhqs=this.webpackJsonpmarvelhqs||[]).push([[0],{22:function(e,t,n){},35:function(e,t,n){"use strict";n.r(t);var r=n(0),s=n.n(r),a=n(10),c=n.n(a);n(11),n(16),n(13),n(22),n(15),n(17),n(8),n(14),n(9),n(7);n.p,n(21);var o=n(1);n.p,n(24);c.a.render(Object(o.jsx)(s.a.StrictMode,{}),document.getElementById("root"))}},[[35,1,2]]]);
-//# sourceMappingURL=main.1fe3aa4f.chunk.js.map

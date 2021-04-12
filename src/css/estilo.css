@@ -27,18 +27,18 @@ html,
     border: none !important;
 }
 
-.cardHeader,
+.cardCabeçalho,
 .select{
     background-color: rgb(42, 42, 42) !important;
     color: white !important;
 }
 
-.cardBody{
+.cardCorpo{
     background-color: rgb(30, 30, 30) !important;
     color: white;
 }
 
-.button{
+.botao{
     background-color: rgb(240, 20, 30) !important;
 }
 

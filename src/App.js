@@ -36,13 +36,13 @@ const App = () =>{
   }
 
   function listaHerois(props){
-    const arrayHerois = [];
+    const arrayHerois = []
     const herois = props
     
     herois.map((heroi) => 
       arrayHerois.push(heroi.id + "/" + heroi.name)
     )
-    return arrayHerois;
+    return arrayHerois
   }
 
   return(

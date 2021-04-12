@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './css/estilo.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-//import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
@@ -34,19 +34,15 @@ const App = () =>{
       console.error("Não foi possível consultar os super-heróis: "+error.message)
     })
   }
-  
-  function ListaHerois(props){
-    const herois = props.herois
-    const listagemHerois = herois.map((heroi) => 
-      <option key={heroi.id} value={heroi.id}>{heroi.name}</option>
-    )
-    return(
-      <>{listagemHerois}</>
-    )
-  }
 
-  function teste(){
-    console.log({heroiId})
+  function listaHerois(props){
+    const arrayHerois = [];
+    const herois = props
+    
+    herois.map((heroi) => 
+      arrayHerois.push(heroi.id + "/" + heroi.name)
+    )
+    return arrayHerois;
   }
 
   return(
@@ -62,22 +58,21 @@ const App = () =>{
                 <Form>
                   <Form.Group>
                     <Form.Label>Selecionar:</Form.Label>
-                    <Form.Control className="select" as="select" size="lg" onChange={teste(), e => setHeroiId(e.target.value)} custom>
-                      <ListaHerois herois={herois}/>
-                      <option disabled selected>Selecione o herói</option>
-                      <option value="Teste1">Teste1</option>
-                      <option value="Teste2">Teste2</option>
-                      <option value="Teste3">Teste3</option>
-                      <option value="Teste4">Teste4</option>
-                      <option value="Teste5">Teste5</option>
-                      <option value="Teste6">Teste6</option> 
+                    <Form.Control className="select" as="select" size="lg" onChange={e => setHeroiId(e.target.value)} custom>
+                      <option key="1" disabled selected>Selecione o herói</option>
+
+                      {listaHerois(herois).map(heroi => {
+                        return (<option key={heroi.split("/")[0]} value={heroi.split("/")[0]}>{heroi.split("/")[1]}</option>)
+                        })
+                      }
+
                     </Form.Control>
                   </Form.Group>
                 </Form>
                 <Row className="d-flex justify-content-center">
-                  {/*<Link to={`/Hq/${heroiId}`}>
+                  <Link to={`/Hq/${heroiId}`}>
                     <Button className="semBorda button">Pesquisar</Button>
-                  </Link>*/}
+                  </Link>
                 </Row>
             </Card.Body>
           </Card>

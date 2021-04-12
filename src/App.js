@@ -32,7 +32,6 @@ const App = () =>{
     await fetch(url)
     .then(response => response.json())
     .then(data =>{
-      console.log(data)
       setHerois(data.data.results)
     })
     .catch(function(){

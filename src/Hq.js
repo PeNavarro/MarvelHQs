@@ -30,7 +30,6 @@ const App = () =>{
         await fetch(url)
         .then(response => response.json())
         .then(data =>{
-            console.log(data.data.results)
             setListaHqs(data.data.results)
         })
         .catch(function(error){

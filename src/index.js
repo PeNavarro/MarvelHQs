@@ -12,7 +12,6 @@ ReactDOM.render(
         <Route path="/Hq/:id" component={Hq}/>
       </Switch>
 </HashRouter>*/}
-<App />
   </React.StrictMode>,
   document.getElementById('root')
 );

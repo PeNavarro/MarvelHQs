@@ -1,5 +1,6 @@
 {
   "name": "marvelhqs",
+  "homepage": "https://penavarro.github.io/MarvelHQs/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -6,13 +6,14 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
-import { useParams } from 'react-router'
+//import { useParams } from 'react-router'
 import NavbarComponent from './components/Navbar'
 //import { Link } from 'react-router-dom'
 
 const App = () =>{
 
-    const {id} = useParams()
+    //const {id} = useParams()
+    const id = 1
 
     const [listaHqs, setListaHqs] = useState([])
 

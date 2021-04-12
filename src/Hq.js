@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { useParams } from 'react-router'
 import NavbarComponent from './components/Navbar'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 
 const App = () =>{
 
@@ -57,7 +57,7 @@ const App = () =>{
                     <ListaHqs listaHqs={listaHqs}/>
                 </Row>
                 <Row className="d-flex justify-content-center mb-4">
-                    <Link to="/"><Button className="semBorda botaoPreto">Voltar</Button></Link>
+                    {/*<Link to="/"><Button className="semBorda botaoPreto">Voltar</Button></Link>*/}
                 </Row>
             </Container>
         </>

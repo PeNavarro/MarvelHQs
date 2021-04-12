@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './css/estilo.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Link} from 'react-router-dom'
+//import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
@@ -75,9 +75,9 @@ const App = () =>{
                   </Form.Group>
                 </Form>
                 <Row className="d-flex justify-content-center">
-                  <Link to={`/Hq/${heroiId}`}>
+                  {/*<Link to={`/Hq/${heroiId}`}>
                     <Button className="semBorda button">Pesquisar</Button>
-                  </Link>
+                  </Link>*/}
                 </Row>
             </Card.Body>
           </Card>

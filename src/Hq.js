@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import Spinner from 'react-bootstrap/Spinner'
 import NavbarComponent from './components/Navbar'
 import { Link, useParams } from 'react-router-dom'
 
@@ -14,6 +15,8 @@ const App = () =>{
     const {id} = useParams()
 
     const [listaHqs, setListaHqs] = useState([])
+    const [carregando, setCarregando] = useState(false)
+    const [erroApi, setErroApi] = useState(false)
 
     useEffect(()=>{
         document.title= "Marvel HQs"
@@ -21,14 +24,19 @@ const App = () =>{
     },[])
 
     async function carregaHq(){
+        setCarregando(true)
         const apiKey = process.env.REACT_APP_APIKEY_MARVEL
         let url = `https://gateway.marvel.com/v1/public/characters/${id}/comics?${apiKey}`
         await fetch(url)
         .then(response => response.json())
         .then(data =>{
-            console.log(data)
+            console.log(data.data.results)
             setListaHqs(data.data.results)
         })
+        .catch(function(error){
+            setErroApi(true)        
+        })
+        setCarregando(false)
     }
 
     function ListaHqs(props){
@@ -51,16 +59,36 @@ const App = () =>{
     return(
         <>
             <NavbarComponent/>
-            <Container>
-                <Row>
-                    <ListaHqs listaHqs={listaHqs}/>
-                </Row>
-                <Row className="d-flex justify-content-center mb-4">
-                    <Link to="/">
-                        <Button className="semBorda botaoPreto">Voltar</Button>
-                    </Link>
-                </Row>
-            </Container>
+                {erroApi &&
+                    <Row className="d-flex justify-content-center">
+                        <h5 className="textoCentralizado">Não foi possível listar os super-heróis, tente novamente mais tarde.</h5>
+                    </Row>
+                }
+
+                {carregando &&
+                    <Row className="d-flex justify-content-center">
+                        <Spinner className="mt-5" animation="border" role="status"/>
+                    </Row>
+                }
+                {!carregando &&
+                    <Container>
+                        {!erroApi &&
+                            <>
+                                <Row className="d-flex justify-content-center">
+                                    {listaHqs.length <= 0 &&
+                                        <h5 className="textoCentralizado">Esse super-herói não participou de nenhuma HQ</h5>
+                                    }
+                                    <ListaHqs listaHqs={listaHqs}/>
+                                </Row>
+                                <Row className="d-flex justify-content-center mb-4">
+                                    <Link to="/">
+                                        <Button className="semBorda botaoPreto">Voltar</Button>
+                                    </Link>
+                                </Row>
+                            </>
+                        }
+                    </Container>
+                } 
         </>
     )
 
